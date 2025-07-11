@@ -1,120 +1,98 @@
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { MoveRight } from "lucide-react";
 import ContactModal from "./contact-modal";
 
-const footerLinks = {
-  general: [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/#projects", label: "Projects" },
-    { href: "#", label: "Blog" },
-  ],
-  specifics: [
-    { href: "#", label: "Guest Book" },
-    { href: "#", label: "Bucket List" },
-    { href: "/uses", label: "Uses" },
-    { href: "#", label: "Attribution" },
-  ],
-  more: [
-    { href: "#contact", label: "Contact" },
-    { href: "/links", label: "Links" },
-    { href: "#", label: "RSS" },
-  ],
-};
+const WingedLogo = () => (
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="mx-auto">
+        <path d="M14.6154 22.1538L12 24.7692L14.6154 27.3846L12 30L17.2308 24.7692L12 19.5385L14.6154 22.1538Z" fill="url(#paint0_linear_10_2)"/>
+        <path d="M33.3846 22.1538L36 24.7692L33.3846 27.3846L36 30L30.7692 24.7692L36 19.5385L33.3846 22.1538Z" fill="url(#paint1_linear_10_2)"/>
+        <circle cx="24" cy="24" r="12" fill="url(#paint2_linear_10_2)"/>
+        <path d="M22.1152 28.5385V19.0769H23.7595V26.9615H27.0287V28.5385H22.1152Z" fill="white"/>
+        <defs>
+            <linearGradient id="paint0_linear_10_2" x1="12" y1="24.7692" x2="17.2308" y2="24.7692" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#5E60FF" stopOpacity="0"/>
+                <stop offset="1" stopColor="#5E60FF"/>
+            </linearGradient>
+            <linearGradient id="paint1_linear_10_2" x1="36" y1="24.7692" x2="30.7692" y2="24.7692" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#5E60FF" stopOpacity="0"/>
+                <stop offset="1" stopColor="#5E60FF"/>
+            </linearGradient>
+            <linearGradient id="paint2_linear_10_2" x1="12" y1="24" x2="36" y2="24" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#5E60FF"/>
+                <stop offset="1" stopColor="#A374FF"/>
+            </linearGradient>
+        </defs>
+    </svg>
+)
+
+const RotatingBadge = () => (
+    <div className="relative w-28 h-28">
+        <svg className="absolute inset-0 w-full h-full text-blue-400 animate-spin" style={{ animationDuration: '20s' }} viewBox="0 0 100 100">
+            <path id="circlePath" fill="none" stroke="currentColor" strokeWidth="4" d="M 10, 50 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0" />
+            <text>
+                <textPath href="#circlePath" startOffset="50%" textAnchor="middle" fill="white" style={{ fontSize: '10px', letterSpacing: '1.5px', textTransform: 'uppercase' }}>
+                    • Open to work • Open to work
+                </textPath>
+            </text>
+        </svg>
+        <div className="absolute inset-0 flex items-center justify-center">
+             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="animate-spin" style={{ animationDuration: '3s' }}>
+                <path d="M12 2L14.1213 4.12132L16.2426 2L18.364 4.12132L20.4853 2L22.6066 4.12132L20.4853 6.24264L22.6066 8.36396L20.4853 10.4853L22.6066 12.6066L20.4853 14.7279L22.6066 16.8492L20.4853 18.9705L18.364 16.8492L16.2426 18.9705L14.1213 16.8492L12 18.9705L9.87868 16.8492L7.75736 18.9705L5.63604 16.8492L3.51472 18.9705L1.3934 16.8492L3.51472 14.7279L1.3934 12.6066L3.51472 10.4853L1.3934 8.36396L3.51472 6.24264L1.3934 4.12132L3.51472 2L5.63604 4.12132L7.75736 2L9.87868 4.12132L12 2Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+        </div>
+    </div>
+);
 
 export default function Footer() {
   return (
-    <footer id="contact" className='bg-black text-neutral-300 border-t border-neutral-800/50'>
-      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
-        <div className="text-center mb-20">
-          <h2 className='font-headline text-4xl sm:text-5xl font-bold text-white'>
-            FROM CONCEPT TO CREATION
-            <br />
-            <span className='relative'>
-              LET'S MAKE IT HAPPEN!
-              <div className="absolute -right-4 -top-5 sm:-right-8 sm:-top-5">
-                <div className="relative w-24 h-24 sm:w-28 sm:h-28">
-                  <div className="absolute inset-0 bg-primary/10 rounded-full animate-pulse-slow blur-xl"></div>
-                  <svg className="absolute inset-0 w-full h-full text-primary" viewBox="0 0 100 100" style={{ animation: 'rotate 20s linear infinite'}}>
-                      <path id="circlePath" fill="none" stroke="none" d="M 10, 50 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0" />
-                      <text>
-                          <textPath href="#circlePath" startOffset="50%" textAnchor="middle" fill="currentColor" style={{fontSize: '11px', letterSpacing: '2px', textTransform: 'uppercase'}}>
-                              • Open to work • Open to work
-                          </textPath>
-                      </text>
-                  </svg>
-                </div>
-              </div>
-            </span>
-          </h2>
-
-          <div className='mt-8'>
-            <ContactModal>
-              <Button size="lg" className="rounded-full">
-                Get in Touch
-              </Button>
-            </ContactModal>
-          </div>
-            
-          <p className='mt-8 text-neutral-400'>I'm available for full-time roles & freelance projects.</p>
-          <p className="mt-2 text-neutral-500 text-sm max-w-xl mx-auto">I thrive on crafting dynamic web applications, and delivering seamless user experiences.</p>
-        </div>
+    <footer id="contact" className='bg-black text-neutral-200'>
+      <div className="relative py-20 sm:py-32 overflow-hidden">
+        <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: "url('https://placehold.co/1920x1080/000000/000000.png?text=+')"}} data-ai-hint="abstract fluid black"></div>
+        <div className="absolute inset-0 bg-black/70"></div>
         
-        <div className="pt-10 border-t border-neutral-800/50 flex flex-col sm:flex-row justify-between items-start gap-10">
-          <div className="max-w-xs">
-            <Link href="/" className="flex items-center gap-2 mb-4">
-                <div className='w-8 h-8 bg-neutral-800 border border-neutral-700 rounded-full flex items-center justify-center'>
-                    <span className="font-bold text-lg text-white">AB</span>
-                </div>
-                <span className="font-bold text-lg text-white">Aayush Bharti</span>
-            </Link>
-            <p className="text-neutral-400 text-sm">
-              I'm Aayush - a full-stack developer, freelancer & problem solver. Thanks for checking out my site!
-            </p>
-            <p className="text-neutral-500 text-sm mt-8">&copy; {new Date().getFullYear()} Aayush Bharti. All rights reserved.</p>
-          </div>
-          
-          <div className="flex-grow grid grid-cols-2 md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="font-semibold text-white mb-4">General</h3>
-              <ul className="space-y-3">
-                {footerLinks.general.map(link => (
-                  <li key={link.label}>
-                    <Link href={link.href} className="text-neutral-400 hover:text-white text-sm transition-colors">{link.label}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold text-white mb-4">Specifics</h3>
-              <ul className="space-y-3">
-                {footerLinks.specifics.map(link => (
-                  <li key={link.label}>
-                    <Link href={link.href} className="text-neutral-400 hover:text-white text-sm transition-colors">{link.label}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold text-white mb-4">More</h3>
-              <ul className="space-y-3">
-                {footerLinks.more.map(link => (
-                  <li key={link.label}>
-                    <Link href={link.href} className="text-neutral-400 hover:text-white text-sm transition-colors">{link.label}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+        <div className="container relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col items-center text-center">
+                <WingedLogo />
+                
+                <div className="w-1/2 mx-auto my-8 border-t border-dashed border-neutral-600"></div>
 
-          <div className="flex justify-center space-x-6">
-            <Link href="#" className="text-neutral-500 hover:text-white transition-colors"><Linkedin /></Link>
-            <Link href="#" className="text-neutral-500 hover:text-white transition-colors"><Github /></Link>
-            <Link href="#" className="text-neutral-500 hover:text-white transition-colors"><Twitter /></Link>
-          </div>
+                <div className="relative">
+                    <h2 className='font-headline text-4xl sm:text-5xl md:text-6xl font-medium uppercase tracking-tight text-white'>
+                        From concept to <span className="font-bold bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">creation</span>
+                        <br/>
+                        Let's make it <span className="font-bold">happen!</span>
+                    </h2>
+                    <div className="absolute -right-8 -top-8 sm:-right-16 sm:-top-8 hidden md:block">
+                        <RotatingBadge />
+                    </div>
+                </div>
+                
+                <div className='mt-10'>
+                    <ContactModal>
+                        <Button size="lg" variant="outline" className="w-52 h-12 rounded-full bg-transparent border-white text-white hover:bg-white hover:text-black transition-colors duration-300 group">
+                           Get in Touch <MoveRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+                        </Button>
+                    </ContactModal>
+                </div>
+                    
+                <p className='mt-8 text-xl font-semibold text-white'>I'm available for full-time roles & freelance projects.</p>
+                <p className="mt-2 text-base text-neutral-400 max-w-xl mx-auto">I thrive on crafting dynamic web applications, and delivering seamless user experiences.</p>
+            </div>
         </div>
       </div>
+       <div className="bg-black py-8 border-t border-neutral-800/50">
+           <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+              <p className="text-neutral-500 text-sm">&copy; {new Date().getFullYear()} Aayush Bharti. All rights reserved.</p>
+              <div className="flex items-center gap-4">
+                 <Link href="/about" className="text-sm text-neutral-400 hover:text-white">About</Link>
+                 <Link href="/#projects" className="text-sm text-neutral-400 hover:text-white">Work</Link>
+                 <Link href="/blog" className="text-sm text-neutral-400 hover:text-white">Blog</Link>
+                 <Link href="/uses" className="text-sm text-neutral-400 hover:text-white">Uses</Link>
+                 <Link href="/links" className="text-sm text-neutral-400 hover:text-white">Links</Link>
+              </div>
+           </div>
+        </div>
     </footer>
   );
 }
