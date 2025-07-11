@@ -1,94 +1,89 @@
-import { Card, CardFooter, CardTitle, CardDescription } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import { Github, ExternalLink } from "lucide-react";
-
-const projects = [
-  {
-    title: "E-commerce Test Automation Framework",
-    description: "A comprehensive test automation framework for a large-scale e-commerce platform, covering UI, API, and database testing. Built with Selenium, TestNG, and Rest-Assured.",
-    image: "https://placehold.co/600x400.png",
-    aiHint: "e-commerce abstract",
-    tags: ["Java", "Selenium", "TestNG", "Rest-Assured", "Maven"],
-    github: "#",
-    live: "#"
-  },
-  {
-    title: "Cypress Dashboard for a SaaS App",
-    description: "Developed an end-to-end testing suite using Cypress for a complex SaaS application. Integrated with Cypress Dashboard for test analytics and reporting.",
-    image: "https://placehold.co/600x400.png",
-    aiHint: "dashboard analytics",
-    tags: ["Cypress", "TypeScript", "Mocha", "CI/CD"],
-    github: "#",
-    live: "#"
-  },
-  {
-    title: "Mobile App Performance Testing",
-    description: "Led performance testing efforts for a native mobile application using Appium and JMeter. Identified and helped resolve critical performance bottlenecks.",
-    image: "https://placehold.co/600x400.png",
-    aiHint: "mobile performance",
-    tags: ["Appium", "JMeter", "Android", "Performance"],
-    github: "#",
-    live: null
-  },
-  {
-    title: "API Test Automation with Python",
-    description: "Created a lightweight and scalable API test automation framework using Python, Pytest, and Requests library for a microservices-based architecture.",
-    image: "https://placehold.co/600x400.png",
-    aiHint: "api code",
-    tags: ["Python", "Pytest", "Requests", "Docker"],
-    github: "#",
-    live: null
-  }
-];
+import { Badge } from "@/components/ui/badge";
+import { projects } from "@/lib/projects-data";
+import { Code, Eye, Plus } from "lucide-react";
 
 export default function ProjectsSection() {
+  const featuredProject = projects[0];
+
   return (
-    <section id="projects" className="py-20 sm:py-32 bg-card">
+    <section id="projects" className="py-20 sm:py-32 bg-background">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Automation Projects
-          </h2>
-          <p className="mt-4 text-lg leading-8 text-muted-foreground">
-            A selection of projects that demonstrate my skills in action.
+          <p className="font-headline text-sm font-semibold uppercase tracking-widest text-primary">
+            Featured Case Studies
           </p>
+          <h2 className="mt-4 font-headline text-4xl font-bold tracking-tight text-foreground sm:text-6xl">
+            Curated{' '}
+            <span className="bg-gradient-to-r from-primary via-purple-400 to-accent bg-clip-text text-transparent">
+              Work
+            </span>
+          </h2>
         </div>
-        <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2">
-          {projects.map((project) => (
-            <Card key={project.title} className="flex flex-col overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-              <div className="relative h-48 w-full">
-                <Image src={project.image} alt={project.title} fill className="object-cover" data-ai-hint={project.aiHint} />
+        <div className="mt-16">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+            <div className="relative h-[300px] sm:h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl shadow-primary/20">
+              <Image
+                src={featuredProject.image}
+                alt={featuredProject.title}
+                fill
+                className="object-cover transition-transform duration-500 hover:scale-110"
+                data-ai-hint={featuredProject.aiHint}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                <h3 className="font-headline text-2xl sm:text-3xl font-bold text-white">
+                  {featuredProject.title}
+                </h3>
+                <p className="mt-2 text-white/80 max-w-md">
+                  A online space for entrepreneurs to pitch ideas, explore others, and gain exposure with clean design.
+                </p>
               </div>
-              <div className="flex flex-1 flex-col p-6">
-                <CardTitle className="font-headline text-2xl">{project.title}</CardTitle>
-                <CardDescription className="mt-2 flex-grow text-muted-foreground">{project.description}</CardDescription>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <Badge key={tag} variant="secondary">{tag}</Badge>
-                  ))}
+              <Link href={`/projects/${featuredProject.slug}`} className="absolute top-4 right-4 group">
+                <div className="relative w-24 h-24">
+                  <svg className="w-full h-full view-details-spin" viewBox="0 0 100 100">
+                    <path
+                      d="M 50,50 m -40,0 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0"
+                      fill="none"
+                      stroke="hsl(var(--primary))"
+                      strokeWidth="2"
+                      strokeDasharray="251.2"
+                      strokeDashoffset="0"
+                    />
+                    <text fill="white" x="50" y="50" dy=".3em" textAnchor="middle" className="text-xs uppercase font-headline">
+                      View Details
+                    </text>
+                  </svg>
+                  <Eye className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-6 w-6 text-primary transition-transform group-hover:scale-125" />
                 </div>
-                <CardFooter className="mt-4 flex justify-end gap-2 p-0">
-                  <Button variant="outline" size="sm" asChild>
-                    <Link href={project.github} target="_blank" rel="noopener noreferrer">
-                      <Github className="mr-2 h-4 w-4" />
-                      GitHub
-                    </Link>
-                  </Button>
-                  {project.live && (
-                    <Button variant="default" size="sm" asChild>
-                      <Link href={project.live} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="mr-2 h-4 w-4" />
-                        Live Demo
-                      </Link>
-                    </Button>
-                  )}
-                </CardFooter>
+              </Link>
+            </div>
+            <div className="space-y-6">
+              <h3 className="font-headline text-3xl font-bold text-foreground">
+                {featuredProject.title}
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                {featuredProject.description}
+              </p>
+              <ul className="space-y-4">
+                {featuredProject.keyFeatures.slice(0, 3).map((feature, index) => (
+                   <li key={index} className="flex items-start gap-3">
+                     <Plus className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
+                     <span>{feature.title}</span>
+                   </li>
+                ))}
+              </ul>
+
+              <div className="flex flex-wrap gap-2">
+                {featuredProject.tags.slice(0, 6).map((tag) => (
+                  <Badge key={tag} variant="secondary" className="gap-1">
+                    <Code className="h-3 w-3" /> {tag}
+                  </Badge>
+                ))}
               </div>
-            </Card>
-          ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -120,3 +120,16 @@ body {
     from {background-position:0 0;}
     to {background-position:-10000px 5000px;}
 }
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.view-details-spin {
+  animation: rotate 10s linear infinite;
+}
