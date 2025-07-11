@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/accordion";
 import { getTechIcon } from "@/lib/projects-data";
 import { Card, CardContent } from "@/components/ui/card";
+import Footer from "@/components/footer";
 
 export function generateStaticParams() {
   return projects.map((project) => ({
@@ -139,6 +140,7 @@ export default function ProjectDetailsPage({ params }: { params: { slug: string 
           </aside>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

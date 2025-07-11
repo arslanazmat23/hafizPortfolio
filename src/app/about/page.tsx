@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import Header from '@/components/header';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import Footer from '@/components/footer';
 
 const experienceData = [
   {
@@ -177,41 +178,8 @@ export default function AboutPage() {
             </div>
         </section>
 
-        <footer className='text-center pt-20 border-t border-neutral-800/50'>
-            <div className="inline-block relative mb-8">
-                <div className='w-12 h-12 bg-neutral-800 border border-neutral-700 rounded-full flex items-center justify-center'>
-                    <span className="font-bold text-lg text-white">AB</span>
-                </div>
-            </div>
-            <h2 className='font-headline text-4xl sm:text-5xl font-bold text-white'>
-                FROM CONCEPT TO CREATION
-                <br/>
-                <span className='relative'>
-                    LET'S MAKE IT HAPPEN!
-                    <span className="view-details-spin absolute -right-12 -top-2 w-10 h-10 border-2 border-dashed border-primary rounded-full"></span>
-                </span>
-            </h2>
-
-            <div className='mt-8'>
-                <Button size="lg" className="rounded-full">
-                    <Link href="#contact">Get in Touch</Link>
-                </Button>
-            </div>
-            
-            <p className='mt-8 text-neutral-500'>I'm available for full-time roles & freelance projects.</p>
-
-            <div className="mt-12 flex justify-center space-x-6">
-              <Link href="#" className="text-neutral-500 hover:text-white transition-colors"><Linkedin /></Link>
-              <Link href="#" className="text-neutral-500 hover:text-white transition-colors"><Github /></Link>
-              <Link href="#" className="text-neutral-500 hover:text-white transition-colors"><Twitter /></Link>
-            </div>
-
-            <div className='mt-16 text-neutral-600 text-sm'>
-                <p>&copy; {new Date().getFullYear()} Aayush Bharti. All rights reserved.</p>
-            </div>
-        </footer>
-
       </div>
+      <Footer />
     </div>
   );
 }
