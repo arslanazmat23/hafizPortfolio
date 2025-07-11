@@ -34,13 +34,11 @@ export default function BlogPage() {
       <Header />
       <main className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
         <header className="text-center mb-16">
-          <p className="font-headline text-sm font-semibold uppercase text-primary tracking-wider mb-2">
-            The Blog
-          </p>
           <h1 className="font-headline text-4xl sm:text-5xl font-bold text-white">
-            Handpicked insights from{' '}
+            Handpicked insights{' '}
+            <span className="text-neutral-500">from the</span>{' '}
             <span className="bg-gradient-to-r from-fuchsia-500 to-cyan-500 bg-clip-text text-transparent">
-              the pensieve
+              pensieve
             </span>
           </h1>
         </header>
@@ -61,7 +59,7 @@ export default function BlogPage() {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
           <div className="lg:col-span-3">
             <div className="flex justify-between items-center mb-8">
-              <p className="text-lg font-semibold text-white">All Posts</p>
+              <div></div>
               <Select defaultValue="newest">
                 <SelectTrigger className="w-[180px] bg-neutral-900 border-neutral-800">
                   <SelectValue placeholder="Sort by" />
@@ -78,7 +76,7 @@ export default function BlogPage() {
               {blogPosts.map((post) => (
                 <Link href={`/blog/${post.slug}`} key={post.slug}>
                   <Card className="bg-neutral-900/50 border border-neutral-800 hover:border-primary/50 transition-all duration-300 group">
-                    <CardContent className="p-6 grid grid-cols-1 md:grid-cols-4 gap-6 items-center">
+                    <CardContent className="p-6 grid grid-cols-1 md:grid-cols-4 gap-6 items-start">
                       <div className="md:col-span-3">
                         <div className="flex items-center gap-4 mb-3 text-sm text-neutral-400">
                            <span>{post.date}</span>
@@ -90,8 +88,8 @@ export default function BlogPage() {
                         <p className="text-neutral-400 mt-2 line-clamp-2">
                           {post.excerpt}
                         </p>
-                        <div className="flex items-center gap-6 mt-4">
-                          <div className="flex items-center gap-2 text-sm text-neutral-500">
+                        <div className="flex items-center gap-6 mt-4 text-sm text-neutral-400">
+                          <div className="flex items-center gap-2">
                             <Clock className="w-4 h-4" />
                             <span>{post.readTime}</span>
                           </div>
@@ -105,7 +103,7 @@ export default function BlogPage() {
                                 {post.authorName.charAt(0)}
                               </AvatarFallback>
                             </Avatar>
-                            <span className="text-sm text-neutral-400">{post.authorName}</span>
+                            <span>{post.authorName}</span>
                           </div>
                         </div>
                         <div className="flex flex-wrap gap-2 mt-4">
@@ -116,7 +114,7 @@ export default function BlogPage() {
                             ))}
                         </div>
                       </div>
-                      <div className="relative w-full h-48 md:h-full rounded-lg overflow-hidden">
+                      <div className="relative w-full h-40 md:h-full rounded-lg overflow-hidden md:col-span-1">
                         <Image
                           src={post.thumbnail}
                           alt={post.title}
