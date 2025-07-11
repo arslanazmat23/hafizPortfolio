@@ -1,4 +1,4 @@
-import { ArrowRight, Briefcase, Code, Cpu, ExternalLink, Figma, GitBranch, Github, Linkedin, MessageSquare, Music, Tv, Twitter, ArrowUpRight } from 'lucide-react';
+import { ArrowRight, Briefcase, Code, Cpu, ExternalLink, Figma, GitBranch, Github, Linkedin, MessageSquare, Music, Tv, Twitter, ArrowUpRight, Code2, PenTool, Wind } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -44,15 +44,21 @@ const githubStats = [
 
 const exploreItems = [
     { 
-        title: "My favorite tools and spots",
+        title: "Uses",
         description: "Check out my favorite tools and spots around the web.",
-        icon: <Figma className="w-6 h-6 text-pink-500" />,
+        href: "/uses",
         image: "https://placehold.co/300x200.png",
-        aiHint: "design tools abstract"
+        aiHint: "design tools abstract",
+        icons: [
+            <PenTool key="figma" className="w-8 h-8 text-pink-400" />,
+            <Code2 key="vscode" className="w-8 h-8 text-blue-400" />,
+            <Wind key="raycast" className="w-8 h-8 text-purple-400" />
+        ]
     },
     { 
         title: "What am I listening to?",
         description: "Recent Favorite: The Dark Side of The Moon by Pink Floyd",
+        href: "#",
         icon: <Music className="w-6 h-6 text-green-500" />,
         image: "https://placehold.co/300x200.png",
         aiHint: "music abstract"
@@ -165,15 +171,25 @@ export default function AboutPage() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 {exploreItems.map(item => (
-                    <Card key={item.title} className="bg-neutral-900 border border-neutral-800 p-6 flex items-start gap-6">
-                        <div className="w-12 h-12 rounded-lg bg-neutral-800 flex items-center justify-center flex-shrink-0">
-                           {item.icon}
-                        </div>
-                        <div>
-                           <h3 className="font-bold text-white">{item.title}</h3>
-                           <p className="text-neutral-400 mt-1">{item.description}</p>
-                        </div>
-                    </Card>
+                    <Link href={item.href} key={item.title}>
+                        <Card className="bg-neutral-900 border border-neutral-800 p-6 flex flex-col items-start gap-4 h-full hover:border-primary/50 transition-colors">
+                            <div className="flex items-center gap-3">
+                                {item.icons ? item.icons.map((icon, index) => (
+                                    <div key={index} className="w-16 h-16 rounded-xl bg-neutral-800 flex items-center justify-center">
+                                       {icon}
+                                    </div>
+                                )) : item.icon && (
+                                    <div className="w-12 h-12 rounded-lg bg-neutral-800 flex items-center justify-center flex-shrink-0">
+                                       {item.icon}
+                                    </div>
+                                )}
+                            </div>
+                            <div>
+                               <h3 className="font-bold text-white">{item.title}</h3>
+                               <p className="text-neutral-400 mt-1">{item.description}</p>
+                            </div>
+                        </Card>
+                    </Link>
                 ))}
             </div>
         </section>
