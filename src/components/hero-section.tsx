@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Mail } from 'lucide-react';
-import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import ContactModal from './contact-modal';
 
 export default function HeroSection() {
   return (
@@ -28,15 +28,11 @@ export default function HeroSection() {
         </div>
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
-          <Button asChild size="lg" className="rounded-full shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-shadow">
-            <Link href="#contact">
+          <ContactModal>
+            <Button size="lg" className="rounded-full shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-shadow">
               Let's Connect <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-          </Button>
-          <Link href="mailto:email@example.com" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-            <Mail className="h-5 w-5" />
-            <span>hello@yourdomain.com</span>
-          </Link>
+            </Button>
+          </ContactModal>
         </div>
       </div>
     </section>
