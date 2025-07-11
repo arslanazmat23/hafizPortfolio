@@ -13,11 +13,13 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <HeroSection />
-        <SkillsSection />
-        <ProjectsSection />
-        <ExperienceSection />
-        <CertificationsSection />
-        <ContactSection />
+        <div className="relative z-10 bg-background">
+          <SkillsSection />
+          <ProjectsSection />
+          <ExperienceSection />
+          <CertificationsSection />
+          <ContactSection />
+        </div>
       </main>
       <Footer />
     </div>
