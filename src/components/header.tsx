@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, TestTube2, ChevronsRight } from 'lucide-react';
+import { Menu, ChevronsRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { usePathname } from 'next/navigation';
 import ContactModal from './contact-modal';
@@ -104,11 +104,10 @@ export default function Header() {
         </div>
         <div className='hidden md:flex justify-end items-center gap-2 min-w-[90px]'>
             <ContactModal>
-              <Button size="sm" variant="ghost" className="text-neutral-400 hover:text-white">Book a Call</Button>
+              <Button size="sm" className='rounded-full'>
+                Get In Touch <ChevronsRight className='ml-1 h-4 w-4' />
+              </Button>
             </ContactModal>
-            <Button size="sm" className='rounded-full'>
-              Get In Touch <ChevronsRight className='ml-1 h-4 w-4' />
-            </Button>
         </div>
         <div className="md:hidden">
           <Sheet open={open} onOpenChange={setOpen}>
@@ -122,7 +121,7 @@ export default function Header() {
               <nav className="mt-8 flex flex-col items-center gap-4">
                 {renderNavLinks(true)}
                  <ContactModal>
-                    <Button size="lg" className='rounded-full' onClick={() => handleLinkClick()}>Book a Call</Button>
+                    <Button size="lg" className='rounded-full' onClick={() => handleLinkClick()}>Get In Touch</Button>
                  </ContactModal>
               </nav>
             </SheetContent>
