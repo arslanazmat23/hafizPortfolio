@@ -1,19 +1,26 @@
+
 'use client';
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, TestTube2 } from 'lucide-react';
+import { Menu, TestTube2, ChevronsRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { usePathname } from 'next/navigation';
 import ContactModal from './contact-modal';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
   { href: '/#projects', label: 'Work' },
-  { href: '#', label: 'Blog' },
+  { href: '/blog', label: 'Blog' },
 ];
 
 export default function Header() {
@@ -35,6 +42,12 @@ export default function Header() {
     setOpen(false);
   };
 
+  const isLinkActive = (href: string) => {
+    if (href === '/') return pathname === href;
+    if (href === '/#projects') return pathname.startsWith('/projects');
+    return pathname.startsWith(href);
+  };
+
   const renderNavLinks = (isMobile: boolean) => (
     <>
       {navLinks.map(({ href, label }) => (
@@ -45,7 +58,7 @@ export default function Header() {
           className={cn(
             'text-sm font-medium transition-all hover:text-white',
             isMobile ? 'block p-4 text-lg' : 'px-4 py-2 rounded-full',
-            (pathname === href || (href === '/#projects' && pathname.startsWith('/projects')))
+            isLinkActive(href)
               ? 'bg-neutral-800 text-white shadow-inner' 
               : 'text-neutral-400'
           )}
@@ -53,12 +66,23 @@ export default function Header() {
           {label}
         </Link>
       ))}
-       {/* Placeholder for More dropdown */}
-       <Button variant="ghost" className={cn(
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="ghost" className={cn(
             'text-sm font-medium transition-all hover:text-white',
             isMobile ? 'block p-4 text-lg' : 'px-4 py-2 rounded-full',
             'text-neutral-400'
           )}>More</Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className="bg-neutral-900 border-neutral-800 text-neutral-300">
+          <DropdownMenuItem asChild>
+             <Link href="/links" className="w-full">Links</Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem asChild>
+            <Link href="/uses" className="w-full">Uses</Link>
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
     </>
   );
 
@@ -80,8 +104,11 @@ export default function Header() {
         </div>
         <div className='hidden md:flex justify-end items-center gap-2 min-w-[90px]'>
             <ContactModal>
-              <Button size="sm" className='rounded-full'>Book a Call</Button>
+              <Button size="sm" variant="ghost" className="text-neutral-400 hover:text-white">Book a Call</Button>
             </ContactModal>
+            <Button size="sm" className='rounded-full'>
+              Get In Touch <ChevronsRight className='ml-1 h-4 w-4' />
+            </Button>
         </div>
         <div className="md:hidden">
           <Sheet open={open} onOpenChange={setOpen}>
