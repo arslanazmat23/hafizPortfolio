@@ -13,15 +13,19 @@ export default function Footer() {
                 <br/>
                 <span className='relative'>
                     LET'S MAKE IT HAPPEN!
-                    <span className="view-details-spin absolute -right-16 -top-2 w-16 h-16 border-2 border-dashed border-primary rounded-full hidden sm:block"></span>
-                     <svg className="absolute -right-20 -top-5 w-24 h-24 text-primary hidden sm:block" viewBox="0 0 100 100" style={{ animation: 'rotate 20s linear infinite'}}>
-                        <path id="circlePath" fill="none" stroke="none" d="M 10, 50 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0" />
-                        <text>
-                            <textPath href="#circlePath" startOffset="50%" textAnchor="middle" fill="currentColor" style={{fontSize: '12px', letterSpacing: '2px'}}>
-                                • OPEN TO WORK • OPEN TO WORK
-                            </textPath>
-                        </text>
-                    </svg>
+                    <div className="absolute -right-20 -top-5 hidden sm:block">
+                      <div className="relative w-24 h-24">
+                        <div className="absolute inset-0 bg-primary/20 rounded-full animate-pulse-slow blur-md"></div>
+                        <svg className="absolute inset-0 w-24 h-24 text-primary" viewBox="0 0 100 100" style={{ animation: 'rotate 20s linear infinite'}}>
+                            <path id="circlePath" fill="none" stroke="none" d="M 10, 50 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0" />
+                            <text>
+                                <textPath href="#circlePath" startOffset="50%" textAnchor="middle" fill="currentColor" style={{fontSize: '12px', letterSpacing: '2px'}}>
+                                    • OPEN TO WORK • OPEN TO WORK
+                                </textPath>
+                            </text>
+                        </svg>
+                      </div>
+                    </div>
                 </span>
             </h2>
 
