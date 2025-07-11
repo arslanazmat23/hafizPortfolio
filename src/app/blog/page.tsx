@@ -21,7 +21,6 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Kbd } from '@/components/ui/kbd';
-import { Separator } from '@/components/ui/separator';
 import { Clock, Search } from 'lucide-react';
 
 import { blogPosts, topics } from '@/lib/blog-data';
@@ -72,20 +71,23 @@ export default function BlogPage() {
               </Select>
             </div>
 
-            <div className="space-y-10">
+            <div className="space-y-8">
               {blogPosts.map((post) => (
-                <Link href={`/blog/${post.slug}`} key={post.slug}>
-                  <Card className="bg-neutral-900/50 border border-neutral-800 hover:border-primary/50 transition-all duration-300 group">
-                    <CardContent className="p-6 grid grid-cols-1 md:grid-cols-4 gap-6 items-start">
+                <Link href={`/blog/${post.slug}`} key={post.slug} passHref>
+                  <article
+                    className="block p-6 bg-neutral-900/50 border border-neutral-800 rounded-xl hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 group cursor-pointer"
+                    aria-label={`Read ${post.title}`}
+                  >
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-6 items-start">
                       <div className="md:col-span-3">
                         <div className="flex items-center gap-4 mb-3 text-sm text-neutral-400">
-                           <span>{post.date}</span>
+                           <span className="font-semibold text-sm">{post.date}</span>
                            <Badge variant="secondary" className="bg-green-900/50 text-green-300 border-green-500/30">{post.status}</Badge>
                         </div>
                         <h2 className="font-headline text-2xl font-bold text-white group-hover:text-primary transition-colors">
                           {post.title}
                         </h2>
-                        <p className="text-neutral-400 mt-2 line-clamp-2">
+                        <p className="text-neutral-400 mt-2 line-clamp-2 text-base leading-relaxed">
                           {post.excerpt}
                         </p>
                         <div className="flex items-center gap-6 mt-4 text-sm text-neutral-400">
@@ -94,7 +96,7 @@ export default function BlogPage() {
                             <span>{post.readTime}</span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <Avatar className="w-6 h-6">
+                            <Avatar className="w-8 h-8">
                               <AvatarImage
                                 src={post.authorImage}
                                 alt={post.authorName}
@@ -108,7 +110,7 @@ export default function BlogPage() {
                         </div>
                         <div className="flex flex-wrap gap-2 mt-4">
                             {post.tags.map((tag) => (
-                                <Badge key={tag} variant="outline" className="border-neutral-700 text-neutral-400">
+                                <Badge key={tag} variant="outline" className="border-neutral-700 text-neutral-400 lowercase">
                                 {tag}
                                 </Badge>
                             ))}
@@ -123,8 +125,8 @@ export default function BlogPage() {
                           data-ai-hint={post.aiHint}
                         />
                       </div>
-                    </CardContent>
-                  </Card>
+                    </div>
+                  </article>
                 </Link>
               ))}
             </div>
