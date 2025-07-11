@@ -2,7 +2,7 @@ import Header from '@/components/header';
 import HeroSection from '@/components/hero-section';
 import SkillsSection from '@/components/skills-section';
 import ProjectsSection from '@/components/projects-section';
-import ExperienceSection from '@/components/experience-section';
+import AboutMeSection from '@/components/about-me-section';
 import CertificationsSection from '@/components/certifications-section';
 import ContactSection from '@/components/contact-section';
 import Footer from '@/components/footer';
@@ -16,7 +16,7 @@ export default function Home() {
         <div className="relative z-10 bg-background">
           <SkillsSection />
           <ProjectsSection />
-          <ExperienceSection />
+          <AboutMeSection />
           <CertificationsSection />
           <ContactSection />
         </div>

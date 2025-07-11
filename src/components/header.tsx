@@ -12,7 +12,7 @@ const navLinks = [
   { href: '#hero', label: 'Home' },
   { href: '#skills', label: 'Skills' },
   { href: '#projects', label: 'Projects' },
-  { href: '#experience', label: 'Experience' },
+  { href: '#about-me', label: 'About' },
   { href: '#certifications', label: 'Certifications' },
 ];
 
@@ -39,11 +39,16 @@ export default function Header() {
         }
       }
     };
-    
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Set active link on initial load
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+
+    if (pathname === '/') {
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Set active link on initial load
+        return () => window.removeEventListener('scroll', handleScroll);
+    } else {
+        // On other pages, we can set a different logic or no active link
+        setActiveLink(''); 
+    }
+  }, [pathname]);
 
   const handleLinkClick = (href: string) => {
     setActiveLink(href);
@@ -54,7 +59,7 @@ export default function Header() {
     navLinks.map(({ href, label }) => (
       <Link
         key={href}
-        href={href}
+        href={pathname === '/' ? href : `/${href}`}
         onClick={() => handleLinkClick(href)}
         className={cn(
           'text-sm font-medium transition-all hover:text-primary',
@@ -70,7 +75,7 @@ export default function Header() {
     <header
       className={cn(
         'sticky top-0 z-50 w-full transition-all',
-        isScrolled ? 'border-b border-border/10 bg-background/80 backdrop-blur-sm' : 'border-transparent'
+        isScrolled || pathname !== '/' ? 'border-b border-border/10 bg-background/80 backdrop-blur-sm' : 'border-transparent'
       )}
     >
       <div className="container mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
