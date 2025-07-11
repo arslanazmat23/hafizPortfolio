@@ -6,6 +6,7 @@ import AboutMeSection from '@/components/about-me-section';
 import CertificationsSection from '@/components/certifications-section';
 import ContactSection from '@/components/contact-section';
 import Footer from '@/components/footer';
+import TestimonialsSection from '@/components/testimonials-section';
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <div className="relative z-10 bg-background">
           <SkillsSection />
           <ProjectsSection />
+          <TestimonialsSection />
           <AboutMeSection />
           <CertificationsSection />
           <ContactSection />
