@@ -7,11 +7,13 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu, TestTube2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { usePathname } from 'next/navigation';
+import ContactModal from './contact-modal';
 
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
   { href: '/#projects', label: 'Work' },
+  { href: '#', label: 'Blog' },
 ];
 
 export default function Header() {
@@ -33,23 +35,32 @@ export default function Header() {
     setOpen(false);
   };
 
-  const renderNavLinks = (isMobile: boolean) =>
-    navLinks.map(({ href, label }) => (
-      <Link
-        key={href}
-        href={href}
-        onClick={handleLinkClick}
-        className={cn(
-          'text-sm font-medium transition-all hover:text-white',
-          isMobile ? 'block p-4 text-lg' : 'px-4 py-2 rounded-full',
-          (pathname === href || (href === '/#projects' && pathname.startsWith('/projects')))
-            ? 'bg-neutral-800 text-white shadow-inner' 
-            : 'text-neutral-400'
-        )}
-      >
-        {label}
-      </Link>
-    ));
+  const renderNavLinks = (isMobile: boolean) => (
+    <>
+      {navLinks.map(({ href, label }) => (
+        <Link
+          key={href}
+          href={href}
+          onClick={handleLinkClick}
+          className={cn(
+            'text-sm font-medium transition-all hover:text-white',
+            isMobile ? 'block p-4 text-lg' : 'px-4 py-2 rounded-full',
+            (pathname === href || (href === '/#projects' && pathname.startsWith('/projects')))
+              ? 'bg-neutral-800 text-white shadow-inner' 
+              : 'text-neutral-400'
+          )}
+        >
+          {label}
+        </Link>
+      ))}
+       {/* Placeholder for More dropdown */}
+       <Button variant="ghost" className={cn(
+            'text-sm font-medium transition-all hover:text-white',
+            isMobile ? 'block p-4 text-lg' : 'px-4 py-2 rounded-full',
+            'text-neutral-400'
+          )}>More</Button>
+    </>
+  );
 
   return (
     <header
@@ -67,10 +78,10 @@ export default function Header() {
                 {renderNavLinks(false)}
             </nav>
         </div>
-        <div className='hidden md:flex justify-end min-w-[90px]'>
-            <Button asChild size="sm" className='rounded-full'>
-                <Link href="#contact">Contact</Link>
-            </Button>
+        <div className='hidden md:flex justify-end items-center gap-2 min-w-[90px]'>
+            <ContactModal>
+              <Button size="sm" className='rounded-full'>Book a Call</Button>
+            </ContactModal>
         </div>
         <div className="md:hidden">
           <Sheet open={open} onOpenChange={setOpen}>
@@ -83,9 +94,9 @@ export default function Header() {
             <SheetContent side="right" className="bg-neutral-900 border-l-neutral-800">
               <nav className="mt-8 flex flex-col items-center gap-4">
                 {renderNavLinks(true)}
-                 <Button asChild size="lg" className='rounded-full'>
-                    <Link href="#contact" onClick={() => handleLinkClick()}>Contact</Link>
-                </Button>
+                 <ContactModal>
+                    <Button size="lg" className='rounded-full' onClick={() => handleLinkClick()}>Book a Call</Button>
+                 </ContactModal>
               </nav>
             </SheetContent>
           </Sheet>

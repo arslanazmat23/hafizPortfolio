@@ -18,7 +18,7 @@ const footerLinks = {
   ],
   more: [
     { href: "#contact", label: "Contact" },
-    { href: "#", label: "Links" },
+    { href: "/links", label: "Links" },
     { href: "#", label: "RSS" },
   ],
 };
