@@ -27,7 +27,7 @@ const WingedLogo = () => (
 )
 
 const RotatingBadge = () => (
-    <div className="relative w-28 h-28">
+    <div className="relative w-28 h-28" role="img" aria-label="Open to work badge animation">
         <svg className="absolute inset-0 w-full h-full text-blue-400 animate-spin" style={{ animationDuration: '20s' }} viewBox="0 0 100 100">
             <path id="circlePath" fill="none" stroke="currentColor" strokeWidth="4" d="M 10, 50 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0" />
             <text>
