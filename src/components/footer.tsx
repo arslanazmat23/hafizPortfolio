@@ -14,20 +14,20 @@ const WingedLogo = () => (
   >
     <path
       d="M14.6154 22.1538L12 24.7692L14.6154 27.3846L12 30L17.2308 24.7692L12 19.5385L14.6154 22.1538Z"
-      fill="url(#paint0_linear_10_2)"
+      fill="url(#paint0_linear_10_2_footer)"
     />
     <path
       d="M33.3846 22.1538L36 24.7692L33.3846 27.3846L36 30L30.7692 24.7692L36 19.5385L33.3846 22.1538Z"
-      fill="url(#paint1_linear_10_2)"
+      fill="url(#paint1_linear_10_2_footer)"
     />
-    <circle cx="24" cy="24" r="12" fill="url(#paint2_linear_10_2)" />
+    <circle cx="24" cy="24" r="12" fill="url(#paint2_linear_10_2_footer)" />
     <path
       d="M22.1152 28.5385V19.0769H23.7595V26.9615H27.0287V28.5385H22.1152Z"
       fill="white"
     />
     <defs>
       <linearGradient
-        id="paint0_linear_10_2"
+        id="paint0_linear_10_2_footer"
         x1="12"
         y1="24.7692"
         x2="17.2308"
@@ -38,7 +38,7 @@ const WingedLogo = () => (
         <stop offset="1" stopColor="#5E60FF" />
       </linearGradient>
       <linearGradient
-        id="paint1_linear_10_2"
+        id="paint1_linear_10_2_footer"
         x1="36"
         y1="24.7692"
         x2="30.7692"
@@ -49,7 +49,7 @@ const WingedLogo = () => (
         <stop offset="1" stopColor="#5E60FF" />
       </linearGradient>
       <linearGradient
-        id="paint2_linear_10_2"
+        id="paint2_linear_10_2_footer"
         x1="12"
         y1="24"
         x2="36"
@@ -65,7 +65,7 @@ const WingedLogo = () => (
 
 const RotatingBadge = () => (
   <div
-    className="relative w-28 h-28 group/badge"
+    className="relative w-24 h-24 sm:w-28 sm:h-28 group/badge"
     role="img"
     aria-label="Open to work badge animation"
   >
@@ -123,7 +123,7 @@ const RotatingBadge = () => (
 export default function Footer() {
   return (
     <footer id="contact" className="bg-black text-neutral-200">
-      <div className="relative py-20 sm:py-32 overflow-hidden">
+      <div className="relative py-24 sm:py-32 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -142,16 +142,16 @@ export default function Footer() {
                 <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent,hsl(var(--primary)),transparent)] animate-divider-wipe"></div>
             </div>
 
-            <div className="relative">
-              <h2 className="font-headline text-4xl sm:text-5xl md:text-[2.5rem] font-medium uppercase tracking-tight text-white [text-shadow:0_2px_4px_rgba(0,0,0,0.6)]">
+            <div className="flex flex-col items-center sm:flex-row gap-8">
+              <h2 className="font-headline text-4xl sm:text-5xl font-bold leading-tight uppercase tracking-tight text-white [text-shadow:0_2px_4px_rgba(0,0,0,0.6)]">
                 From concept to{' '}
-                <span className="font-bold bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent tracking-tighter">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">
                   creation
                 </span>
                 <br />
-                Let's make it <span className="font-bold">happen!</span>
+                Let's make it <span className="underline decoration-wavy decoration-indigo-500">happen!</span>
               </h2>
-              <div className="absolute -right-8 -top-8 sm:-right-16 sm:-top-8 hidden md:block">
+              <div className="hidden md:block">
                 <RotatingBadge />
               </div>
             </div>
@@ -161,7 +161,7 @@ export default function Footer() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="w-52 h-12 rounded-full bg-transparent border-white text-white transition-all duration-300 group hover:border-transparent hover:text-white hover:bg-gradient-to-r hover:from-purple-500 hover:to-teal-500"
+                  className="w-52 h-14 rounded-full bg-white/10 border-white text-white transition-all duration-300 group hover:bg-gradient-to-r hover:from-purple-500 hover:to-teal-500 hover:border-transparent hover:text-white hover:scale-105"
                 >
                   Get in Touch{' '}
                   <MoveRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
@@ -169,13 +169,15 @@ export default function Footer() {
               </ContactModal>
             </div>
 
-            <p className="mt-8 text-xl font-semibold text-white">
-              I'm available for full-time roles & freelance projects.
-            </p>
-            <p className="mt-2 text-base text-neutral-400 max-w-xl mx-auto">
-              I thrive on crafting dynamic web applications, and delivering
-              seamless user experiences.
-            </p>
+            <div className="mt-8 text-center max-w-xl mx-auto">
+                <p className="text-xl font-semibold text-white">
+                I'm available for full-time roles & freelance projects.
+                </p>
+                <p className="mt-2 text-base text-neutral-400 opacity-90">
+                I thrive on crafting dynamic web applications, and delivering
+                seamless user experiences.
+                </p>
+            </div>
           </div>
         </div>
       </div>
