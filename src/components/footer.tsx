@@ -3,66 +3,6 @@ import { Button } from './ui/button';
 import { MoveRight } from 'lucide-react';
 import ContactModal from './contact-modal';
 
-const WingedLogo = () => (
-  <svg
-    width="48"
-    height="48"
-    viewBox="0 0 48 48"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    className="mx-auto"
-  >
-    <path
-      d="M14.6154 22.1538L12 24.7692L14.6154 27.3846L12 30L17.2308 24.7692L12 19.5385L14.6154 22.1538Z"
-      fill="url(#paint0_linear_10_2_footer)"
-    />
-    <path
-      d="M33.3846 22.1538L36 24.7692L33.3846 27.3846L36 30L30.7692 24.7692L36 19.5385L33.3846 22.1538Z"
-      fill="url(#paint1_linear_10_2_footer)"
-    />
-    <circle cx="24" cy="24" r="12" fill="url(#paint2_linear_10_2_footer)" />
-    <path
-      d="M22.1152 28.5385V19.0769H23.7595V26.9615H27.0287V28.5385H22.1152Z"
-      fill="white"
-    />
-    <defs>
-      <linearGradient
-        id="paint0_linear_10_2_footer"
-        x1="12"
-        y1="24.7692"
-        x2="17.2308"
-        y2="24.7692"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#5E60FF" stopOpacity="0" />
-        <stop offset="1" stopColor="#5E60FF" />
-      </linearGradient>
-      <linearGradient
-        id="paint1_linear_10_2_footer"
-        x1="36"
-        y1="24.7692"
-        x2="30.7692"
-        y2="24.7692"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#5E60FF" stopOpacity="0" />
-        <stop offset="1" stopColor="#5E60FF" />
-      </linearGradient>
-      <linearGradient
-        id="paint2_linear_10_2_footer"
-        x1="12"
-        y1="24"
-        x2="36"
-        y2="24"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#5E60FF" />
-        <stop offset="1" stopColor="#A374FF" />
-      </linearGradient>
-    </defs>
-  </svg>
-);
-
 const RotatingBadge = () => (
   <div
     className="relative w-24 h-24 sm:w-28 sm:h-28 group/badge"
@@ -136,7 +76,6 @@ export default function Footer() {
 
         <div className="container relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center text-center">
-            <WingedLogo />
 
             <div className="w-1/2 mx-auto my-8 h-px relative overflow-hidden">
                 <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent,hsl(var(--primary)),transparent)] animate-divider-wipe"></div>
