@@ -32,12 +32,12 @@ export default function UsesPage() {
             <span className="italic bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400">Tools</span> I Use Daily
           </h1>
           <p className="mt-4 text-neutral-400 max-w-xl mx-auto">
-            A curated list of the software, hardware, and tools I rely on every day to get things done.
+            A curated list of the software, hardware, and services I rely on every day to get things done.
           </p>
         </section>
 
         <section className="py-12">
-            <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
             {tools.map((tool) => (
                 <article
                 key={tool.name}
