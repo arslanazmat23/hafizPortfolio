@@ -68,13 +68,15 @@
     <li><a href="https://nextjs.org/" target="_blank" rel="noopener">Next.js</a></li>
     <li><a href="https://reactjs.org/" target="_blank" rel="noopener">React</a></li>
     <li><a href="https://tailwindcss.com/" target="_blank" rel="noopener">Tailwind CSS</a></li>
-    <li><a href="https://firebase.google.com/" target="_bl_
+    <li><a href="https://firebase.google.com/" target="_blank" rel="noopener">Firebase Studio</a></li>
+    <li><a href="https://www.typescriptlang.org/" target="_blank" rel="noopener">TypeScript</a></li>
+  </ul>
 
   <h2>⚙️ Getting Started</h2>
   <ol>
     <li>
       <strong>Clone the repo:</strong>
-      <pre><code>git clone https://github.com/arslanazmat23/hafizPortfolio
+      <pre><code>git clone https://github.com/arslanazmat23/hafizPortfolio.git
 cd hafizPortfolio
 </code></pre>
     </li>
@@ -108,7 +110,7 @@ npm start</code></pre>
   <h2>📬 Contact</h2>
   <p>
     Created by <strong>Hafiz Arslan</strong> — QA Automation Engineer.<br>
-    ✉️ <a href="mailto:your.email@example.com">arslanazmat25@gmail.com</a><br>
+    ✉️ <a href="mailto:arslanazmat25@gmail.com">arslanazmat25@gmail.com</a><br>
     🔗 <a href="https://github.com/arslanazmat23" target="_blank" rel="noopener">GitHub Profile</a>
   </p>
 
