@@ -1,19 +1,8 @@
 ````markdown
 # 🏠 Hafiz Arslan’s Portfolio
 
-[![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT) [![Stars](https://img.shields.io/github/stars/arslanazmat23/hafizPortfolio?style=social)](https://github.com/arslanazmat23/hafizPortfolio/stargazers) [![Forks](https://img.shields.io/github/forks/arslanazmat23/hafizPortfolio?style=social)](https://github.com/arslanazmat23/hafizPortfolio/network/members)
 
 > A sleek, responsive portfolio template built with Next.js, Tailwind CSS & Firebase. Perfect for showcasing your skills, projects, and experience with minimal effort.
-
----
-
-## 📺 Demo
-
-[Live Demo on Vercel](https://your-vercel-url.vercel.app)
-
-![Homepage Screenshot](./docs/screenshot-home.png)
-
----
 
 ## 📋 Table of Contents
 
