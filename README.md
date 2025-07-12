@@ -111,7 +111,7 @@ npm start</code></pre>
   <p>
     Created by <strong>Hafiz Arslan</strong> — QA Automation Engineer.<br>
     ✉️ <a href="mailto:arslanazmat25@gmail.com">arslanazmat25@gmail.com</a><br>
-    🔗 <a href="https://github.com/arslanazmat23" target="_blank" rel="noopener">GitHub Profile</a>
+    🔗 <a href="https://github.com/arslanazmat23" target="_blank" rel="noopener">GitHub Profilee</a>
   </p>
 
 </body>
