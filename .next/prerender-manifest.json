@@ -150,54 +150,6 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/projects/cypress-saas-dashboard": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "Next-Action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/projects/[slug]",
-      "dataRoute": "/projects/cypress-saas-dashboard.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/projects/ecommerce-test-framework": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "Next-Action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/projects/[slug]",
-      "dataRoute": "/projects/ecommerce-test-framework.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
     "/blog/how-to-build-a-blog-with-nextjs-and-mdx": {
       "experimentalBypassFor": [
         {
@@ -269,10 +221,8 @@
         "x-next-revalidated-tags",
         "x-next-revalidate-tag-token"
       ]
-    }
-  },
-  "dynamicRoutes": {
-    "/projects/[slug]": {
+    },
+    "/projects/cypress-saas-dashboard": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -284,10 +234,9 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "routeRegex": "^/projects/([^/]+?)(?:/)?$",
-      "dataRoute": "/projects/[slug].rsc",
-      "fallback": null,
-      "dataRouteRegex": "^/projects/([^/]+?)\\.rsc$",
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/projects/[slug]",
+      "dataRoute": "/projects/cypress-saas-dashboard.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -297,6 +246,32 @@
         "x-next-revalidate-tag-token"
       ]
     },
+    "/projects/ecommerce-test-framework": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "Next-Action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/projects/[slug]",
+      "dataRoute": "/projects/ecommerce-test-framework.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    }
+  },
+  "dynamicRoutes": {
     "/blog/[slug]": {
       "experimentalBypassFor": [
         {
@@ -321,12 +296,37 @@
         "x-next-revalidated-tags",
         "x-next-revalidate-tag-token"
       ]
+    },
+    "/projects/[slug]": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "Next-Action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "routeRegex": "^/projects/([^/]+?)(?:/)?$",
+      "dataRoute": "/projects/[slug].rsc",
+      "fallback": null,
+      "dataRouteRegex": "^/projects/([^/]+?)\\.rsc$",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
     }
   },
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "17f094111c3127f6d0a7fba5312bd667",
-    "previewModeSigningKey": "b71148ef5a8ee43856ca03f073d6ec9f8705bba6c523c4cbfee54274decf0ff2",
-    "previewModeEncryptionKey": "92e0919624cf54dd6b38da8da1478fa9c36cc7748033063494eca53888a469e6"
+    "previewModeId": "07b352b785ea5bc615395677c028484b",
+    "previewModeSigningKey": "4a2a7d732d8c525c7817d7867c3fb66b3132fc1ac3d2bc5f0f619a5820964bdd",
+    "previewModeEncryptionKey": "b6ae50a20dce23c7a0c06775acf7ee41f07f1af9c93333f465f9f9a1006aedd1"
   }
 }

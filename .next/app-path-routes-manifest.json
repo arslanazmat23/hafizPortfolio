@@ -2,10 +2,10 @@
   "/_not-found/page": "/_not-found",
   "/favicon.ico/route": "/favicon.ico",
   "/about/page": "/about",
-  "/page": "/",
-  "/links/page": "/links",
   "/blog/page": "/blog",
-  "/blog/[slug]/page": "/blog/[slug]",
+  "/links/page": "/links",
+  "/page": "/",
+  "/uses/page": "/uses",
   "/projects/[slug]/page": "/projects/[slug]",
-  "/uses/page": "/uses"
+  "/blog/[slug]/page": "/blog/[slug]"
 }
